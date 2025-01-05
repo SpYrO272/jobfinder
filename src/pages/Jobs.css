@@ -1,0 +1,17 @@
+/* Ensure .bg takes full viewport height and aligns the content properly */
+.bg {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure it grows to fill space */
+}

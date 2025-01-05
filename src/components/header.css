@@ -1,0 +1,48 @@
+/* General styling */
+.container-fluid {
+    width: 100%;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links p, .nav-links button {
+    margin: 0;
+    text-decoration: none;
+  }
+  
+  /* Hide links on smaller screens */
+  .menu-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media (max-width: 991px) {
+    /* Show the menu toggle icon */
+    .menu-toggle {
+      display: block;
+    }
+  
+    /* Hide the links by default */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: absolute;
+      top: 70px; /* Adjust based on header height */
+      right: 20px;
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    /* Show the links when menu is open */
+    .nav-links.open {
+      display: flex;
+    }
+  }
+  
