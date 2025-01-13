@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo1 from '../assets/logo1.png';
 import { Link, useNavigate } from "react-router-dom";
-import './Header.css'; 
+import './header.css'; 
 
 
 function Header({ isLoggedIn, setIsLoggedIn}) {
