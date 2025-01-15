@@ -22,7 +22,7 @@ function Register() {
       toast.info('Please fill the form')
     }
     else{
-      const result = await registerApi(userDetails)
+      const result = await registerApi({username,email,password})
       console.log(result);
       if(result.status==200){
         toast.success("Registration Successfull")
