@@ -32,7 +32,9 @@ function Register() {
           password:""
           
         })
-        navigate('/login')
+        setTimeout(()=>{
+          navigate('/login'); 
+        },2000)
       }
       else if(result.status==406){
         toast.warning(result.response.data)

@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import ust from '../assets/ust.png';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 
 function Viewjob() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -110,7 +111,7 @@ function Viewjob() {
             </h2>
             
             {/* Bookmark Icon */}
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faBookmark} 
               style={{
                 position: 'absolute',
@@ -121,7 +122,7 @@ function Viewjob() {
                 cursor: 'pointer',
               }}
               className="m-3"
-            />
+            /> */}
           </div>
 
           {/* Job Title */}
@@ -165,11 +166,22 @@ function Viewjob() {
           </p>
 
    
-          <button onClick={handleShow} className="border-0 px-4 py-1 mt-3" style={{ backgroundColor: '#F46236', color: '#FFFFFF' }}>
-            Apply
-          </button>
+          <Button
+              onClick={() => navigate('/jobs')} 
+              className='mt-5 p-1 px-0'
+              variant="secondary"
+              style={{
+               width:'10%',
+                fontSize: '1.5rem',
+                color: '#FFFFFF',
+                cursor: 'pointer',
+               
+              }}
+            >
+              Back
+            </Button>
 
-          <Modal show={show} onHide={handleClose}>
+          {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title style={{
                   fontFamily: 'Archivo Black, sans-serif',
@@ -232,7 +244,7 @@ function Viewjob() {
           <ToastContainer position='top-center' autoClose={2000} theme='colored'/>
 
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
         </div>
       </div>
     </>

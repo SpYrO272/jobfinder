@@ -5,6 +5,7 @@ import { faCircleCheck, faListCheck, faSuitcase, faBars } from '@fortawesome/fre
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getFormDataApi } from '../services/allApi';
+import { Link } from 'react-router-dom';
 
 
 function Admin() {
@@ -223,6 +224,11 @@ const handleShortlist = (id) => {
                 }}><FontAwesomeIcon icon={faListCheck} size="xl" /> Shortlisted</h3>
                 <p style={{ fontSize: '24px', fontWeight: 'bold', color: "#ffffff" }}>{shortlistedCount}</p>
               </div>
+            </div>
+            <div className="text-center mt-4">
+              <Link to="/" className="btn btn-outline-primary">
+                Back to Home
+              </Link>
             </div>
           </div>
         );
