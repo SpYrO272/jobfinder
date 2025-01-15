@@ -5,11 +5,10 @@ import Nav from "react-bootstrap/Nav";
 import Footer from "../components/Footer";
 
 function Profile() {
-  const [isLoggedIn] = useState(true); // Simulate user logged in
+  const [isLoggedIn] = useState(true); 
 
   const [selectedSection, setSelectedSection] = useState("Profile");
   const [isEditing, setIsEditing] = useState(false);
- // Check localStorage for existing profile data
  const savedProfileData = localStorage.getItem("profileData");
  const savedProfileImage = localStorage.getItem("profileImage");
   const [profileData, setProfileData] = useState(() => {
@@ -34,9 +33,9 @@ function Profile() {
   
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Reset login state to false
-    sessionStorage.removeItem("token"); // Optionally remove the token
-    // Redirect to homepage or login page if needed
+    setIsLoggedIn(false);
+    sessionStorage.removeItem("token");
+    
   };
   
 

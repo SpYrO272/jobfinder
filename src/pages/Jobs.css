@@ -1,4 +1,4 @@
-/* Ensure .bg takes full viewport height and aligns the content properly */
+
 .bg {
   display: flex;
   flex-direction: column;
@@ -13,5 +13,5 @@
 .container-fluid {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Ensure it grows to fill space */
+  flex-grow: 1; 
 }

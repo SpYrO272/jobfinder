@@ -22,14 +22,14 @@ function Admin() {
     experience: '',
   });
 
-  const [jobs, setJobs] = useState([]); // State to store posted jobs
+  const [jobs, setJobs] = useState([]); 
   const [shortlistedCount, setShortlistedCount] = useState(0);
 
 
-// Shortlist handler
+
 const handleShortlist = (id) => {
-  // Add logic to update shortlisted applicants (maybe save to a database or update state)
-  setShortlistedCount(shortlistedCount + 1);  // Increment the shortlist count
+  
+  setShortlistedCount(shortlistedCount + 1);  
   console.log(`Applicant with ID ${id} has been shortlisted.`);
 };
 
@@ -77,7 +77,7 @@ const handleShortlist = (id) => {
   const handlePostJob = async(e) => {
     e.preventDefault();
 
-     // Check if all fields are filled out
+
      if (
       !jobDetails.jobTitle ||
       !jobDetails.jobDescription ||
@@ -94,7 +94,7 @@ const handleShortlist = (id) => {
 
     const newJob = {
       ...jobDetails,
-      postedDate: new Date().toISOString().split('T')[0], // Store the current date
+      postedDate: new Date().toISOString().split('T')[0],
     };
 
     try {
@@ -109,10 +109,10 @@ const handleShortlist = (id) => {
         const savedJob = await response.json();
         toast.success('Job posted successfully!');
         
-        // Update local state to show the job instantly
+        
         setJobs((prevJobs) => [...prevJobs, savedJob]);
   
-        // Clear the form fields
+      
         setJobDetails({
           jobTitle: '',
           jobDescription: '',
@@ -134,15 +134,13 @@ const handleShortlist = (id) => {
 
   const handleDeleteJob = async (jobId) => {
     try {
-      // Send DELETE request to backend
+      
       const response = await fetch(`http://localhost:5000/jobs/${jobId}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
         toast.success('Job deleted successfully!');
-  
-        // Remove the deleted job from the local state
         setJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
       } else {
         toast.error('Failed to delete job!');
@@ -368,7 +366,7 @@ const handleShortlist = (id) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{job.jobTitle}</td>
-                    <td>{job.company}</td> {/* Replace with actual company if applicable */}
+                    <td>{job.company}</td> 
                     <td>{job.experience} years</td>
                     <td>{job.deadline}</td>
                    
@@ -410,7 +408,7 @@ const handleShortlist = (id) => {
             </tr>
           </thead>
           <tbody>
-            {/* Sample Row */}
+            {/* Row */}
             {formDetails?.map((item,index)=>(
               <tr key={index}>
               <td>{index+1}</td>
@@ -427,14 +425,14 @@ const handleShortlist = (id) => {
               <button
                     className={`btn btn-sm ${item.shortlisted ? 'btn-success' : 'btn-outline-success'}`}
                     onClick={() => handleShortlist(item._id)}
-                    disabled={item.shortlisted} // Disable button once shortlisted
+                    disabled={item.shortlisted} 
                   >
                     {item.shortlisted ? 'Shortlisted' : 'Shortlist'}
                   </button>
               </td>
             </tr>
             ))}
-            {/* Add more rows dynamically here */}
+          
           </tbody>
         </table>
       </div>
@@ -528,7 +526,7 @@ const handleShortlist = (id) => {
   </nav>
 </aside>
 
-      {/* Main Content */}
+      {/* Main*/}
       <main style={{ flex: 1, padding: '20px' }}>
         <button
           className="btn btn-outline-primary d-md-none mb-3"

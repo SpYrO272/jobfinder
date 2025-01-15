@@ -12,7 +12,7 @@ import { addFormDataApi } from '../services/allApi';
 
 
 function Jobs() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [show, setShow] = useState(false);
 
   const handleClose = () =>{ setShow(false);
@@ -20,12 +20,11 @@ function Jobs() {
   }  
   const handleShow = () => setShow(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [jobs, setJobs] = useState([]); // State to store jobs data
+  const [jobs, setJobs] = useState([]); 
   const [selectedJobType, setSelectedJobType] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedSalary, setSelectedSalary] = useState('');
-  const [filterKey, setFilterKey] = useState(0); // Key for resetting the filter sec
-   // State for form inputs
+  const [filterKey, setFilterKey] = useState(0); 
    const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,9 +49,9 @@ function Jobs() {
   }
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Reset login state to false
-    sessionStorage.removeItem("token"); // Optionally remove the token
-    // Redirect to homepage or login page if needed
+    setIsLoggedIn(false); 
+    sessionStorage.removeItem("token");
+   
   };
   
   const handleSubmit = async()=>{
@@ -121,13 +120,13 @@ function Jobs() {
     ? (() => {
         const salaryValue = selectedSalary;
         if (salaryValue === "1000000+") {
-          return job.salary > 100000; // Matches all salaries above 1 lakh
+          return job.salary > 100000; 
         }
         const [minSalary, maxSalary] = salaryValue.split('-').map(Number);
         if (maxSalary) {
           return job.salary >= minSalary && job.salary <= maxSalary;
         }
-        return job.salary >= minSalary; // For the last range (e.g., "800000+")
+        return job.salary >= minSalary; 
       })()
     : true;
 
@@ -138,7 +137,7 @@ function Jobs() {
     setSelectedJobType('');
     setSelectedLocation('');
     setSelectedSalary('');
-    setFilterKey((prevKey) => prevKey + 1); // Increment key to re-render the filters
+    setFilterKey((prevKey) => prevKey + 1); 
   };
 
 //   const handleFileChange = (e) => {
@@ -166,15 +165,14 @@ function Jobs() {
     // Fetch jobs from the server
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/jobs'); // Adjust the API endpoint as needed
+        const response = await fetch('http://localhost:5000/jobs'); 
         if (!response.ok) throw new Error('Failed to fetch jobs');
         const data = await response.json();
-        setJobs(data); // Store the fetched jobs in state
+        setJobs(data); 
 
-         // Ensure salary is always a string
       const processedData = data.map(job => ({
         ...job,
-        salary: String(job.salary), // Convert salary to string if it's not
+        salary: String(job.salary), 
       }));
 
       setJobs(processedData);
@@ -202,11 +200,11 @@ function Jobs() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: isMobile ? "scroll" : "fixed", // Reactive background attachment
+        backgroundAttachment: isMobile ? "scroll" : "fixed", 
         display: "flex",
         flexDirection: "column",
-        paddingBottom: "60px", // Ensure there's space for footer at bottom
-        overflow: "hidden", // Prevent background overflow
+        paddingBottom: "60px", 
+        overflow: "hidden", 
       }}>
         <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
 

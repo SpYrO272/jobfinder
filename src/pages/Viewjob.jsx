@@ -13,30 +13,29 @@ function Viewjob() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [job, setJob] = useState(null); // State to hold the job data
-  const { id } = useParams(); // Get the job ID from the URL parameters
+  const [job, setJob] = useState(null); 
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     address: '',
-    resume: null, // For file upload
+    resume: null, 
   });
 
   const handleFileChange = (e) => {
     setFormData((prevData) => ({ ...prevData, resume: e.target.files[0] }));
   };
- // Handle form field changes
+ 
  const handleChange = (e) => {
   const { name, value } = e.target;
   setFormData((prevData) => ({ ...prevData, [name]: value }));
 };
 
-  // Handle form submission
+
   const handleSubmit = () => {
     const { name, email, phone, address, resume } = formData;
 
-    // Validation: Check if all fields are filled
     if (!name || !email || !phone || !address || !resume) {
       toast.error('Please fill in all fields and upload a resume.', {
         position: 'top-center',
@@ -46,14 +45,14 @@ function Viewjob() {
       return;
     }
 
-    // Simulate successful submission
+   
     Swal.fire({
       title: 'Success!',
       text: 'Your job application and resume have been successfully submitted! We will review your application and contact you if shortlisted. Thank you for applying!',
       icon: 'success',
       button: 'Okay',
     });
-    // Close modal after a short delay
+    
     setTimeout(() => handleClose(), 2000);
   };
  
@@ -64,12 +63,12 @@ function Viewjob() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/jobs/${id}`); // Fetch job by ID
+        const response = await fetch(`http://localhost:5000/jobs/${id}`); 
         if (!response.ok) {
           throw new Error('Failed to fetch job');
         }
         const jobData = await response.json();
-        setJob(jobData); // Set the job data to state
+        setJob(jobData); 
       } catch (error) {
         console.error(error);
       }
@@ -78,9 +77,9 @@ function Viewjob() {
     fetchJob();
   }, [id]);
 
-  // Show loading state or error if job is not found
+
   if (!job) {
-    return <p>Loading...</p>; // Or handle error case here
+    return <p>Loading...</p>; 
   }
 
   return (
@@ -88,14 +87,14 @@ function Viewjob() {
       <div style={{ backgroundColor: '#C0EEFF', width: '100%', minHeight: '100vh' }}>
         <div className="container-fluid p-5">
           <div className="position-relative d-flex align-items-center">
-            {/* Logo and Company Name */}
+            
             <img
               src={ust}
               alt="UST logo"
-              className="img-fluid" // Bootstrap class for responsive image
+              className="img-fluid" 
               style={{
-                width: '6%', // Keeps the aspect ratio intact
-                maxWidth: '6%', // Ensures the image doesn't exceed 60% of the parent width on large screens
+                width: '6%', 
+                maxWidth: '6%', 
               }}
             />
             <h2
@@ -165,7 +164,7 @@ function Viewjob() {
             <span style={{ fontWeight: '600' }}>Posted Date :</span> {job.deadline}
           </p>
 
-          {/* Apply Button */}
+   
           <button onClick={handleShow} className="border-0 px-4 py-1 mt-3" style={{ backgroundColor: '#F46236', color: '#FFFFFF' }}>
             Apply
           </button>

@@ -23,7 +23,7 @@ function Page1() {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Black with 50% opacity
+            backgroundColor: "rgba(0, 0, 0, 0.5)", 
             zIndex: 1,
           }}
         ></div>
@@ -34,10 +34,10 @@ function Page1() {
           alt="Logo"
           style={{
             position: "absolute",
-            top: "20px", // Adjust as needed for spacing
-            left: "20px", // Adjust as needed for spacing
+            top: "20px", 
+            left: "20px", 
             width: "120px",
-            zIndex: 2, // Ensure it appears above the overlay
+            zIndex: 2, 
           }}
         />
       </div>

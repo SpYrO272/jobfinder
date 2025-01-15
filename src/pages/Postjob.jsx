@@ -31,7 +31,7 @@ function Postjob() {
         sessionStorage.setItem('token', token);
 
         setTimeout(() => {
-          navigate('/admin'); // Redirect to admin dashboard
+          navigate('/admin');
         }, 2000);
       } else {
         toast.warning(response.data);
@@ -45,7 +45,7 @@ function Postjob() {
     <>
       <div className="container-fluid">
         <div className="row">
-          {/* Left side (green background) */}
+          {/* Left side  */}
           <div
             className="col-md-5 d-flex flex-column justify-content-center align-items-center"
             style={{ backgroundColor: '#97F597', height: '100vh' }}
@@ -69,12 +69,12 @@ function Postjob() {
             />
           </div>
 
-          {/* Right side (blue background) */}
+          {/* Right side */}
           <div
             className="col-md-7 d-flex flex-column"
             style={{ backgroundColor: '#6EFDE5', height: '100vh' }}
           >
-            {/* Header section with logo */}
+       
             <div className="container d-flex justify-content-between">
               <img className="mt-4" style={{ width: '120px' }} src={logo} alt="logo" />
               <p className="mt-5">
@@ -83,7 +83,6 @@ function Postjob() {
               </p>
             </div>
 
-            {/* Centered login form section */}
             <div
               className="d-flex flex-column justify-content-center align-items-center"
               style={{ flexGrow: 1 }}

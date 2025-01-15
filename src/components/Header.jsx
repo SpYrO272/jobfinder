@@ -9,24 +9,22 @@ function Header({ isLoggedIn, setIsLoggedIn}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Handle job click logic
+
   const handleJobClick = () => {
     if (!isLoggedIn) {
-      setShowModal(true); // Show modal if not logged in
+      setShowModal(true); 
     } else {
-      navigate("/jobs"); // Navigate to jobs if logged in
+      navigate("/jobs");
     }
   };
 
-  // Handle modal close and job redirection
   const handleCloseModal = () => {
-    setShowModal(false); // Close modal
+    setShowModal(false); 
   };
 
-  // Trigger navigation after modal action
   const handleModalAction = () => {
-    setShowModal(false); // Close modal
-    navigate("/login"); // Navigate to login page
+    setShowModal(false); 
+    navigate("/login");
   };
 
   const toggleMenu = () => {
@@ -35,8 +33,8 @@ function Header({ isLoggedIn, setIsLoggedIn}) {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    sessionStorage.removeItem("token"); // Clear session data if applicable
-    navigate("/"); // Redirect to home page
+    sessionStorage.removeItem("token");
+    navigate("/"); 
   };
 
   return (
@@ -45,7 +43,7 @@ function Header({ isLoggedIn, setIsLoggedIn}) {
         <div className="d-flex justify-content-between align-items-center">
           <img src={logo1} style={{ width: '120px' }} alt="Logo" />
 
-          {/* Hamburger icon for smaller screens */}
+  
           <div className="menu-toggle d-lg-none" onClick={toggleMenu}>
             ☰
           </div>
@@ -63,15 +61,15 @@ function Header({ isLoggedIn, setIsLoggedIn}) {
               </>
             ): (
               <>
-                <Link className="fs-5 text-dark me-3" to="/profile">Profile</Link> {/* Display Profile when logged in */}
-                <Link className="fs-5 text-dark me-3" onClick={handleLogout} to="/">Logout</Link> {/* Optionally include Logout */}
+                <Link className="fs-5 text-dark me-3" to="/profile">Profile</Link>
+                <Link className="fs-5 text-dark me-3" onClick={handleLogout} to="/">Logout</Link> 
               </>
             )}
           </div>
         </div>
       </div>
 
-      {/* Modal for showing login prompt */}
+     
       {showModal && (
         <div className="modal show" style={{ display: 'block' }} tabIndex="-1" aria-hidden="true">
           <div className="modal-dialog">
