@@ -10,13 +10,11 @@ import Button from 'react-bootstrap/Button';
 
 function Home() {
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
-  
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogout = () => {
-    setIsLoggedIn(false); // Reset login state to false
-    sessionStorage.removeItem("token"); // Optionally remove the token
-    // Redirect to login page (optional)
+    setIsLoggedIn(false); 
+    sessionStorage.removeItem("token"); 
+    
   };
   
   return (
@@ -82,7 +80,7 @@ function Home() {
           </div>
         </div>
       </div>
-{/* category section */}
+{/* category  */}
       <div  style={{ backgroundColor: "#EBF9FF", width: "100%" }}>
   <div className="container-fluid pb-5">
     <h2
@@ -97,7 +95,7 @@ function Home() {
     </h2>
     <p className="text-center">Explore diverse job categories tailored to match your interests and expertise</p>
     
-    {/* First Row */}
+
     <div className="row justify-content-center">
       <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center my-3">
         <Card className="p-3" style={{ backgroundColor: "#BCF5F3", width: "100%", maxWidth: "20rem" }}>
@@ -111,13 +109,12 @@ function Home() {
               Web Designing
             </Card.Title>
             <div className="d-flex justify-content-center">
-              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available : 4</Button>
+              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available </Button>
             </div>
           </Card.Body>
         </Card>
       </div>
-      
-      {/* Repeat Card with Graphic Designing */}
+    
       <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center my-3">
         <Card className="p-3" style={{ backgroundColor: "#BCF5F3", width: "100%", maxWidth: "20rem" }}>
           <Card.Img
@@ -130,13 +127,13 @@ function Home() {
               Graphic Designing
             </Card.Title>
             <div className="d-flex justify-content-center">
-              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available : 4</Button>
+              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available</Button>
             </div>
           </Card.Body>
         </Card>
       </div>
 
-      {/* Repeat Card with Web Development */}
+     
       <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center my-3">
         <Card className="p-3" style={{ backgroundColor: "#BCF5F3", width: "100%", maxWidth: "20rem" }}>
           <Card.Img
@@ -149,7 +146,7 @@ function Home() {
               Web Development
             </Card.Title>
             <div className="d-flex justify-content-center">
-              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available : 4</Button>
+              <Button className="border-0" variant="primary" style={{ backgroundColor: '#5DC7EE' }}>Available</Button>
             </div>
           </Card.Body>
         </Card>
@@ -235,7 +232,7 @@ function Home() {
   </div>
 
 </div>
-      {/* Additional CSS for responsive text styling */}
+      
       <style jsx>{`
         @media (max-width: 768px) {
           .responsive-heading {
